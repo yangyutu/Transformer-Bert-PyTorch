@@ -10,6 +10,6 @@ In my [transformer anatomy note](https://github.com/yangyutu/Transformer-Bert-Py
 * Decoder anatomy
 
 ## References
-https://github.com/codertimo/BERT-pytorch
-https://nlp.seas.harvard.edu/2018/04/03/attention.html
+https://github.com/codertimo/BERT-pytorch \
+https://nlp.seas.harvard.edu/2018/04/03/attention.html \
 https://github.com/huggingface/transformers
