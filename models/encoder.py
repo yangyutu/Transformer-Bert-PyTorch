@@ -30,7 +30,7 @@ class Encoder(nn.Module):
 
     def forward(self, encoderInputs):
         encoderOutputs = self.sourceEmbedding(encoderInputs) \
-                         + self.posEmbedding(torch.LongTensor([[1, 2, 3, 4, 0]]))
+                         + self.posEmbedding(torch.LongTensor([np.arange(encoderInputs.shape[1])]))
         # encoderSelfAttentionMask shape (batchSize, inputSeqLen, inputSeqLen)
         encoderSelfAttentionMask = getAttentionPadMask(encoderInputs, encoderInputs)
         encoderSelfAttentions = []

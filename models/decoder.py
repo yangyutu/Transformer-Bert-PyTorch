@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import numpy as np
 from models.multiHeadAttention import MultiHeadAttention
 from utils.ffn import FeedForwardNet
 from utils.positionEncoder import getSinCosEncoding
@@ -35,7 +36,7 @@ class Decoder(nn.Module):
 
     def forward(self, decoderInputs, encoderInputs, encoderOutputs):
         decoderOutputs = self.targetEmbedding(decoderInputs) \
-                         + self.posEmbedding(torch.LongTensor([[5, 1, 2, 3, 4]]))
+                         + self.posEmbedding(torch.LongTensor([np.arange(decoderInputs.shape[1])]))
         decoderSelfAttentionPadMask = getAttentionPadMask(decoderInputs, decoderInputs)
         decoderSelfAttentionSubsequentMask = getAttentionSubsequentMask(decoderInputs)
         # combine the two masks via logical or for self-attention mask

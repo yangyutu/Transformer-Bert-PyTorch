@@ -6,7 +6,9 @@ import torch.optim as optim
 from models.transformer import Transformer
 
 # special symbols are P, S, E, (0, 5, 6)
-
+# here are three sentences. P is padding code, S is starting code, E is ending code
+# first sentence is input sequence, second sequence is output sequence (used as the input in decoder side)
+# third sentence is target sequence (which is one left shift of output sequence)
 sentences = ['ich mochte ein bier P', 'S i want a beer', 'i want a beer E']
 sourceVocab = {'P' : 0, 'ich' : 1, 'mochte' : 2, 'ein' : 3, 'bier' : 4}
 sourceVocabSize = len(sourceVocab)
