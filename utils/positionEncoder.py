@@ -10,6 +10,6 @@ def getPositionAngleVector(position, d_model):
 def getSinCosEncoding(n_position, d_model):
     sinCosTable = np.array([getPositionAngleVector(i, d_model) for i in range(n_position)])
     sinCosTable[:, 0::2] = np.sin(sinCosTable[:,0::2])
-    sinCosTable[:, 1::2] = np.sin(sinCosTable[:, 1::2])
+    sinCosTable[:, 1::2] = np.cos(sinCosTable[:, 1::2])
     return torch.FloatTensor(sinCosTable)
 
